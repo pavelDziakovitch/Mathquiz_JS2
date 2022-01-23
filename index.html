@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="shortcut icon" href="imgs/quiz.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,67 @@
     <link rel="stylesheet" href="style.css">
     <title>Math-Quiz</title>
 </head>
-<body>
+<body class="flex">
+    <!-- Headline -->
+    <h1>Math-Quiz</h1> >
+    <!-- whole Gamefield -->
+    <article id="gameField" class="gameField flex scene">
+        <!-- animated area -->
+        <section id="gridfield" class="grid forLayoutGridfield floor">
+            <!-- single field with numbers -->
+            <div id="field1" class="field1">
+                <p>1</p>
+            </div>
+            <div id="field2" class="field2">
+                <p>2</p>
+            </div>
+            <div id="field3" class="field3">
+                <p>3</p>
+            </div>
+            <div id="field4" class="field4">
+                <p>4</p>
+            </div>
+            <div id="field5" class="field5">
+                <p>5</p>
+            </div>
+            <div id="field6" class="field6">
+                <p>6</p>
+            </div>
+            <div id="field7" class="field7">
+                <p>7</p>
+            </div>
+            <div id="field8" class="field8">
+                <p>8</p>
+            </div>
+            <div id="field9" class="field9">
+                <p>9</p>
+            </div>
+        </section>
+        <!-- menu area -->
+        <aside class="flex">
+            <!--left area-->
+            <div id="left" class="left">
+                <!-- progressDisplay -->
+                <div id="progressDisplay" class="progressDisplay textCenter ">
+                    <p class="inline">Level </p><p id="progressText" class="inline"></p>
+                </div>
+                <!-- area with buttons and input -->
+                <div id="interactiveField" class="interactiveField flex">
+                    <div class="BTNs flex">
+                        <button id="continueGameBTN" class="btn nextBTN">Frage anzeigen</button>
+                        <button id="newGameBTN" class="btn newBTN">Neues Spiel</button>
+                    </div>
+                    <input type="text" class="textCenter" id="userInputField">
+                    <button id="saveBTN" class="btn saveBTN">Eingabe bestätigen</button>
+                </div>
+            </div>
+            <!--right area where quest is shown-->
+            <div id="right" class="right">
+                    <p id="userQuestText" class="">QuestText</p>
+            </div>
+            </div>
+        </aside>
+    </article>
     <script src="mathquiz.js"></script>
 </body>
 </html>

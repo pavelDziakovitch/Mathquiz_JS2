@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
+
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: aqua;
+    font-family: 'Source Code Pro', monospace;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+    font-size: 36px;
+    margin: 0;
+}
+
+.flex{
+    display: flex;
+}
+
+.inline{
+    display: inline;
+}
+
+
+.textCenter{
+    text-align: center;
+}
+
+.grid{
+    display: grid;
+}
+
+/* Layout */
+.gameField{
+    flex: 1 1 20vw;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    perspective: 50em;
+    position: relative;
+}
+
+input{
+    width: 8vw;
+    height: 6vh;
+    margin-bottom: 2vh;
+    font-size: 5vh;
+    border-radius: 40px;
+    font-family: 'Source Code Pro', monospace;
+    border: 6px solid rgb(27, 30, 196);
+}
+
+.interactiveField{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progressDisplay{
+    margin-bottom: 2vh;
+    font-size: 5vh;
+}
+
+aside{
+    width: 80%;
+    z-index:200;
+    top: -25vh;
+    position: relative;
+    flex: 1 1;
+    flex-wrap: wrap;
+    height: fit-content;
+}
+
+.right,.left{
+    flex: 1 1 30%;
+    height: 10vh;
+}
+
+.right{
+    text-align: center;
+    font-size: 5vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BTNs{
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: vh;
+}
+
+/* buttons */
+
+.nextBTN{
+    color: aqua;
+    border: 2px solid blueviolet;
+}
+
+.newBTN{
+    color: aqua;
+    border: 2px solid rgba(255, 0, 0, 0.568);
+}
+
+.saveBTN{
+    color: aqua;
+    border: 2px solid rgb(0, 255, 191);
+}
+
+.btn{
+    height: fit-content;
+    width: 45%;
+    font-size: 3vh;
+    border-radius: 40px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-bottom: 2vh;
+    font-family: 'Source Code Pro', monospace;
+    line-height:2em;
+}
+
+.btn:hover{
+    box-shadow: inset 0 0px 10px 0px rgb(160, 0, 210);
+}
+
+.btn:active{
+    border-color: rgb(58, 241, 88);
+    box-shadow: inset 0 0px 15px 0px rgb(66, 255, 145);
+}
+/* Grid and Scene */
+
+.forLayoutGridfield{
+    justify-content: space-between;
+    flex: 0 1 400px;
+    grid-template-columns: repeat(3, 25vh);
+    grid-template-rows: repeat(3, 25vh);
+    grid-template-areas:
+    "field1 field2 field3"
+    "field4 field9 field5"
+    "field6 field7 field8";
+    margin-top: 2vh;
+}
+
+.floor{
+    transform: translateY(-20vh) rotateX(50deg) rotateZ(0deg) ;
+    transition: transform 3s ease;
+    border-radius: 40px;
+}
+
+.floor p{
+    transition: transform 3s ease;
+    transform : rotateZ(180deg);
+    margin: auto auto;
+    font-size: 10vh;
+    border: none;
+}
+
+.scene{
+    position: relative;
+    z-index:100;
+}
+
+.forLayoutGridfield> div:nth-child(-n+9){
+    color: white;
+    text-shadow: 0 1px 0 black;
+    background-color: aqua;
+    margin:4vh;
+    display: flex;
+    border-radius: 3vh;
+
+}
+
+.field1{
+    grid-area: field1;
+}
+.field2{
+    grid-area: field2;
+}
+.field3{
+    grid-area: field3;
+}
+.field4{
+    grid-area: field4;
+}
+.field5{
+    grid-area: field5;
+}
+.field6{
+    grid-area: field6;
+}
+.field7{
+    grid-area: field7;
+}
+.field8{
+    grid-area: field8;
+}
+.field9{
+    grid-area: field9;
+}
+.progressDisplay{
+    grid-area: gameProgress;
+}
+.interactiveField{
+    grid-area: menu;
+}
+
+.highlighted{
+    transform:scale(1.3);
+    border: 10px solid rgba(255, 0, 43, 0.774);
+    filter: drop-shadow(0 0 20px rgb(160, 0, 210));
+}
+
+/* Responsive */
+
+
+@media (max-width: 1000px){
+    .forLayoutGridfield{
+        margin-top: 4em;
+        grid-template-columns: repeat(3, 30vw);
+        grid-template-rows: repeat(3, 30vw);
+    }
+    .right,.left{
+        flex: 0 0 100%;
+    }
+    aside{
+        top: -20%;
+        
+    }
+    .floor p{
+        font-size: 4em;
+    }
+}
