@@ -34,7 +34,7 @@ async function weiter() {
         }
         else{
             progressCount = 1;
-            $(".gameField").css("perspective","50em");   
+            $(".gameField").css("perspective","80em");   
         }
         //save progress in LocalStorage
         setLocalStorage();
@@ -67,7 +67,7 @@ function neuesSpiel() {
     progressCountText.html(progressCount)
     hideElements();
     //reset perspective to normal
-    $(".gameField").css("perspective","50em");   
+    $(".gameField").css("perspective","80em");   
 }
 
 async function frage(){
