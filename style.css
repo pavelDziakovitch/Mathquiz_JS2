@@ -12,7 +12,7 @@ body{
 
 h1{
     text-align: center;
-    font-size: 36px;
+    font-size: 3vh;
     margin: 0;
 }
 
@@ -35,12 +35,11 @@ h1{
 
 /* Layout */
 .gameField{
-    flex: 1 1 20vw;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    perspective: 50em;
-    position: relative;
+    justify-content: top;
+    min-height: 100%;
+    
 }
 
 input{
@@ -51,6 +50,7 @@ input{
     border-radius: 40px;
     font-family: 'Source Code Pro', monospace;
     border: 6px solid rgb(27, 30, 196);
+    position: relative;
 }
 
 .interactiveField{
@@ -66,31 +66,26 @@ input{
 
 aside{
     width: 80%;
+    min-height: 10vh;
     z-index:200;
-    top: -25vh;
-    position: relative;
-    flex: 1 1;
     flex-wrap: wrap;
-    height: fit-content;
+    flex: 0 1;
 }
 
 .right,.left{
-    flex: 1 1 30%;
-    height: 10vh;
-}
-
-.right{
+    flex: 0 0 50%;
+    height: fit-content;
     text-align: center;
-    font-size: 5vh;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+}
+.right p{
+    margin: 0;
+    font-size: 4vh;
 }
 
 .BTNs{
     justify-content: space-around;
     width: 100%;
-    margin-bottom: vh;
+    flex-wrap: wrap;
 }
 
 /* buttons */
@@ -133,21 +128,21 @@ aside{
 /* Grid and Scene */
 
 .forLayoutGridfield{
-    justify-content: space-between;
-    flex: 0 1 400px;
     grid-template-columns: repeat(3, 25vh);
     grid-template-rows: repeat(3, 25vh);
     grid-template-areas:
     "field1 field2 field3"
     "field4 field9 field5"
     "field6 field7 field8";
-    margin-top: 2vh;
+
+
 }
 
 .floor{
-    transform: translateY(-20vh) rotateX(50deg) rotateZ(0deg) ;
+    transform: rotateX(50deg) rotateZ(0deg) ;
     transition: transform 3s ease;
     border-radius: 40px;
+    position: absolute;
 }
 
 .floor p{
@@ -170,7 +165,19 @@ aside{
     margin:4vh;
     display: flex;
     border-radius: 3vh;
+}
 
+.forLayoutGridfield> div:nth-child(-n+9):not(.highlighted){
+    filter: drop-shadow(0px 0 10px rgb(255, 255, 255));
+}
+
+.grid-container{
+    height: 60%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content:center;
 }
 
 .field1{
@@ -218,12 +225,12 @@ aside{
 
 @media (max-width: 1000px){
     .forLayoutGridfield{
-        margin-top: 4em;
         grid-template-columns: repeat(3, 30vw);
         grid-template-rows: repeat(3, 30vw);
     }
     .right,.left{
         flex: 0 0 100%;
+        height: fit-content;
     }
     aside{
         top: -20%;
@@ -231,5 +238,30 @@ aside{
     }
     .floor p{
         font-size: 4em;
+    }
+}
+
+@media (max-width: 500px){
+    .forLayoutGridfield{
+        grid-template-columns: repeat(3, 5.5em);
+        grid-template-rows: repeat(3, 5.5em);
+    }
+    .forLayoutGridfield> div:nth-child(-n+9){
+        margin:3vh;
+    
+    }
+    .floor p, .highlighted p{
+        font-size: 2em;
+    }
+    .highlighted{
+        transform:scale(2);
+        border: 4px solid rgba(255, 0, 43, 0.774);
+        filter: drop-shadow(0 0 20px rgb(160, 0, 210));
+    }
+    .btn{
+        width: 100%;
+    }
+    input{
+        width: 80%;
     }
 }

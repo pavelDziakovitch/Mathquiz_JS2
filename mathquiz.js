@@ -219,10 +219,10 @@ function changeViewDeg(){
 
     $(".floor p").css("transform",`rotateZ(${degNumbers}deg)`); 
     if(progressCount != 9){
-        $(".floor").css("transform",`translateY(-20vh) rotateX(50deg) rotateZ(${degFloor}deg)`);
+        $(".floor").css("transform",`rotateX(60deg) rotateZ(${degFloor}deg)`);
     } 
     else{
-        $(".floor").css("transform",`translateY(-20vh) rotateX(30deg) rotateZ(${degFloor}deg)`);  
+        $(".floor").css("transform",`rotateX(40deg) rotateZ(${degFloor}deg)`);  
         $(".gameField").css("perspective","50em");      
     }
 }
