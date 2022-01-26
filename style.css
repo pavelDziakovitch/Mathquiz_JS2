@@ -11,13 +11,19 @@ body{
 }
 
 h1{
-    text-align: center;
-    font-size: 3vh;
     margin: 0;
 }
 
-.flex{
+h1,p, .btn, input{
+    font-size: 3vh;
+}
+
+.flex, .forLayoutGridfield> div:nth-child(-n+9){
     display: flex;
+}
+
+.flexColumn{
+    flex-direction: column;
 }
 
 .inline{
@@ -29,63 +35,51 @@ h1{
     text-align: center;
 }
 
+.itemsCenter{
+    align-items: center;
+}
+
 .grid{
     display: grid;
 }
 
 /* Layout */
 .gameField{
-    flex-direction: column;
-    align-items: center;
     justify-content: top;
     min-height: 100%;
-    
+
+}
+
+.borderRadius40px{
+    border-radius: 40px;
 }
 
 input{
-    width: 8vw;
+    width: 18vh;
     height: 6vh;
-    margin-bottom: 2vh;
-    font-size: 5vh;
-    border-radius: 40px;
     font-family: 'Source Code Pro', monospace;
     border: 6px solid rgb(27, 30, 196);
     position: relative;
 }
 
-.interactiveField{
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.progressDisplay{
-    margin-bottom: 2vh;
-    font-size: 5vh;
-}
-
 aside{
+    margin-top: 3vh;
     width: 80%;
     min-height: 10vh;
     z-index:200;
     flex-wrap: wrap;
-    flex: 0 1;
 }
 
 .right,.left{
     flex: 0 0 50%;
     height: fit-content;
-    text-align: center;
-}
-.right p{
-    margin: 0;
-    font-size: 4vh;
 }
 
 .BTNs{
     justify-content: space-around;
     width: 100%;
     flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 /* buttons */
@@ -107,14 +101,16 @@ aside{
 
 .btn{
     height: fit-content;
-    width: 45%;
-    font-size: 3vh;
-    border-radius: 40px;
+    width: 47%;
     background-color: transparent;
     cursor: pointer;
-    margin-bottom: 2vh;
+
     font-family: 'Source Code Pro', monospace;
     line-height:2em;
+}
+
+.marginBottom2vh{
+    margin-bottom: 2vh;
 }
 
 .btn:hover{
@@ -128,29 +124,24 @@ aside{
 /* Grid and Scene */
 
 .forLayoutGridfield{
-    grid-template-columns: repeat(3, 25vh);
-    grid-template-rows: repeat(3, 25vh);
+    grid-template-columns: repeat(3, minmax(5.5em,11vw));
+    grid-template-rows: repeat(3, minmax(5.5em,11vw));
     grid-template-areas:
     "field1 field2 field3"
     "field4 field9 field5"
     "field6 field7 field8";
-
-
 }
 
 .floor{
-    transform: rotateX(50deg) rotateZ(0deg) ;
-    transition: transform 3s ease;
-    border-radius: 40px;
+    transition: transform 0.5s ease;
     position: absolute;
 }
 
 .floor p{
-    transition: transform 3s ease;
+    transition: transform 0.5s ease;
     transform : rotateZ(180deg);
     margin: auto auto;
     font-size: 10vh;
-    border: none;
 }
 
 .scene{
@@ -160,29 +151,32 @@ aside{
 
 .forLayoutGridfield> div:nth-child(-n+9){
     color: white;
-    text-shadow: 0 1px 0 black;
+    text-shadow: 0 1px 2px black;
     background-color: aqua;
-    margin:4vh;
-    display: flex;
     border-radius: 3vh;
+    margin: 15px;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0px 0px 6px rgba(255, 0, 0, 0.507);
 }
 
-.forLayoutGridfield> div:nth-child(-n+9):not(.highlighted){
-    filter: drop-shadow(0px 0 10px rgb(255, 255, 255));
+.forLayoutGridfield> div:nth-child(-n+9):hover{
+    transform: perspective(100px) translateZ(-0.25em);
+    box-shadow: 0px 0px 18px 10px rgba(255, 0, 0, 0.507);
 }
 
 .grid-container{
     height: 60%;
     width: 100%;
     position: relative;
-    display: flex;
-    align-items: center;
     justify-content:center;
-    perspective: 80em;
+    perspective: 60em;
+    transform: translateY(-10vh);
+
 }
 
 .field1{
     grid-area: field1;
+
 }
 .field2{
     grid-area: field2;
@@ -216,46 +210,38 @@ aside{
 }
 
 .highlighted{
-    transform:scale(1.3);
+    transform:scale(1.25);
     border: 10px solid rgba(255, 0, 43, 0.774);
     filter: drop-shadow(0 0 20px rgb(160, 0, 210));
+    background-color:rgb(81, 32, 218) !important;
+    -webkit-text-stroke: 2px black;;
 }
 
 /* Responsive */
 
 
-@media (max-width: 1000px){
-    .forLayoutGridfield{
-        grid-template-columns: repeat(3, 30vw);
-        grid-template-rows: repeat(3, 30vw);
+@media (max-width: 1200px){
+    .grid-container{
+        transform: translateY(0vh);
+        height: 50%;
     }
     .right,.left{
-        flex: 0 0 100%;
-        height: fit-content;
-    }
-    aside{
-        top: -20%;
-        
+        flex-basis: 100%;
     }
     .floor p{
         font-size: 4em;
     }
 }
 
-@media (max-width: 500px){
-    .forLayoutGridfield{
-        grid-template-columns: repeat(3, 5.5em);
-        grid-template-rows: repeat(3, 5.5em);
-    }
-    .forLayoutGridfield> div:nth-child(-n+9){
-        margin:3vh;
-    
+@media (max-width: 700px){
+    .grid-container{
+        transform: translateY(0vh);
+        height: 30%;
     }
     .floor p, .highlighted p{
-        font-size: 2em;
+        font-size: 40px;
     }
     .highlighted{
-        transform:scale(2);
         border: 4px solid rgba(255, 0, 43, 0.774);
         filter: drop-shadow(0 0 20px rgb(160, 0, 210));
     }

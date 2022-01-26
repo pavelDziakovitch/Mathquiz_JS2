@@ -11,11 +11,11 @@
 </head>
 <body class="flex">
     <!-- whole Gamefield -->
-    <article id="gameField" class="gameField flex scene">
+    <article id="gameField" class="gameField flex scene flexColumn itemsCenter">
         <!-- Headline -->
-        <h1>Math-Quiz</h1>
+        <h1 class="textCenter">Math-Quiz</h1>
         <!-- animated area -->
-        <div class="grid-container">
+        <div class="grid-container itemsCenter flex">
             <section id="gridfield" class="grid forLayoutGridfield floor">
                 <!-- single field with numbers -->
                 <div id="field1" class="field1">
@@ -50,23 +50,23 @@
         <!-- menu area -->
         <aside class="flex">
             <!--left area-->
-            <div id="left" class="left">
+            <div id="left" class="left textCenter">
                 <!-- progressDisplay -->
-                <div id="progressDisplay" class="progressDisplay textCenter ">
+                <div id="progressDisplay" class="marginBottom2vh textCenter ">
                     <p class="inline">Level </p><p id="progressText" class="inline"></p>
                 </div>
                 <!-- area with buttons and input -->
-                <div id="interactiveField" class="interactiveField flex">
+                <div id="interactiveField" class="flex flexColumn itemsCenter">
                     <div class="BTNs flex">
-                        <button id="continueGameBTN" class="btn nextBTN">Frage anzeigen</button>
-                        <button id="newGameBTN" class="btn newBTN">Neues Spiel</button>
+                        <button id="continueGameBTN" class="btn nextBTN borderRadius40px marginBottom2vh">Frage anzeigen</button>
+                        <button id="newGameBTN" class="btn newBTN borderRadius40px marginBottom2vh">Neues Spiel</button>
                     </div>
-                    <input type="text" class="textCenter" id="userInputField">
-                    <button id="saveBTN" class="btn saveBTN">Eingabe bestätigen</button>
+                    <input type="text" class="textCenter borderRadius40px positionRelative borderRadius40px marginBottom2vh" id="userInputField">
+                    <button id="saveBTN" class="btn saveBTN borderRadius40px marginBottom2vh">Eingabe bestätigen</button>
                 </div>
             </div>
             <!--right area where quest is shown-->
-            <div id="right" class="right">
+            <div id="right" class="right textCenter">
                     <p id="userQuestText" class="">QuestText</p>
             </div>
         </aside>

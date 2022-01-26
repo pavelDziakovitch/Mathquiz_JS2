@@ -217,7 +217,7 @@ function changeViewDeg(){
     let degFloor = (-45)*degMultiplikatorsFloor[progressCount-1];
     let degNumbers = (45)*degMultiplikatorsFloor[progressCount-1];
 
-    $(".floor p").css("transform",`rotateZ(${degNumbers}deg)`); 
+    $(".floor p").css("transform",`rotateZ(${degNumbers}deg) `); 
     if(progressCount != 9){
         $(".floor").css("transform",`rotateX(60deg) rotateZ(${degFloor}deg)`);
     } 
